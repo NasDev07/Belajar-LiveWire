@@ -7,6 +7,8 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 
 #[Title('Posts')]
+
+#[\Livewire\Attributes\Lazy()]
 class Index extends Component
 {
     #[\Livewire\Attributes\On('postCreated')]
@@ -15,8 +17,14 @@ class Index extends Component
     {
     }
 
+    public function placeholder()
+    {
+        return view('livewire.posts.placeholder');
+    }
+
     public function render()
     {
+        sleep(2);
         return view(
             'livewire.posts.index',
             [
